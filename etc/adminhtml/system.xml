@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+     <system>
+         <tab id="spam_email" translate="label" sortOrder="110">
+             <label>Stop Spam Email</label>
+         </tab>
+         <section id="stoplist" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+             <class>separator-top</class>
+             <label>Settings</label>
+             <tab>spam_email</tab>
+             <resource>VendorName_ModuleName::acl_path</resource>
+             <group id="lists" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Keywords</label>
+                <attribute type="expanded">1</attribute>
+                <field id="status" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_registration" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Check keywords for customer registration?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/*/status">1</field>
+                    </depends>
+                </field>
+                <field id="newsletter_registration" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Check keywords for newsletter registration?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/*/status">1</field>
+                    </depends>
+                </field>
+                <field id="keywords" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>keywords</label>
+                    <frontend_model>Y2B\StopSpamRegistration\Block\Adminhtml\Form\Field\Customcmstabs</frontend_model>
+                    <backend_model>Y2B\StopSpamRegistration\Model\Config\Backend\Customcmstabs</backend_model>
+                    <comment>Add each keywords in seperate textbox to validate it. Add each keywords is check from Firstname, Lastname and Email</comment>
+                    <depends>
+                        <field id="*/*/status">1</field>
+                    </depends>
+                </field>
+             </group>
+        </section>
+     </system>
+</config>

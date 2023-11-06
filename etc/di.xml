@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <type name="Magento\Customer\Controller\Account\CreatePost">
+        <plugin name="check_spam_registration_plugin" type="Y2B\StopSpamRegistration\Plugin\CheckspamCustomerRegistration" sortOrder="10" disabled="false"  />
+    </type>
+
+    <type name="Magento\Newsletter\Controller\Subscriber\NewAction">
+        <plugin name="check_spam_newsletter_registration_plugin" type="Y2B\StopSpamRegistration\Plugin\CheckspamNewsletter" sortOrder="10" disabled="false"  />
+    </type>
+</config>

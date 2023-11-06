@@ -1,0 +1,24 @@
+{
+    "name": "y2b/stopspamregistration",
+    "description": "Stop Spam Registration Module to stop spam in website.",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Bharat Bhajgotar",
+            "email": "bhajgotar@live.com",
+            "role": "Technical Support"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Y2B\\StopSpamRegistration\\": ""
+        }
+    }
+}
